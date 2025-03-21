@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Админка пиццерии</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Административная панель "Пиццерия 2PIZZA"</h1>
+        <div class="admin-info">
+            <span>Администратор</span>
+            <img src="assets/images.svg" alt="Аватар Администратора" class="admin-avatar">
+        </div>
+    </header>
+    
+    <main>
+        <section id="menu-variants-section">
+            <h2>Варианты комбо</h2>
+            <!-- Контейнер для карточек меню -->
+            <div id="menu-variants-container" class="variants-container">
+                <!-- Карточки меню будут добавляться динамически -->
+            </div>
+            <!-- Контейнер с управляющими кнопками -->
+            <div class="controls">
+                <button id="add-variant-btn" class="action-button">Добавить вариант</button>
+                <button id="add-to-nomenclature-btn" class="action-button">Добавить в номенклатуру</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- Модальное окно для добавления блюда -->
+    <div id="add-dish-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Добавить блюдо</h3>
+            <form id="add-dish-form">
+                <label for="dish-select">Выберите блюдо:</label>
+                <select id="dish-select" required>
+                    <option value="">-- Выберите блюдо --</option>
+                </select>
+                <label for="dish-type-select">Выберите тип блюда:</label>
+                <select id="dish-type-select" required>
+                    <option value="">-- Выберите тип --</option>
+                    <option value="1">Салат</option>
+                    <option value="2">Американская пицца</option>
+                    <option value="3">Итальянская пицца</option>
+                    <option value="4">Десерт</option>
+                    <option value="5">Напиток</option>
+                </select>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-success">Добавить</button>
+                    <button type="button" class="btn btn-light" id="cancel-add-dish-btn">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Модальное окно для добавления блюда в номенклатуру -->
+    <div id="add-to-catalog-modal" class="modal hidden">
+        <div class="modal-content">
+            <h3>Добавить блюдо в номенклатуру</h3>
+            <form id="add-to-catalog-form">
+                <label for="new-dish-name">Название блюда:</label>
+                <input type="text" id="new-dish-name" required>
+                <label for="catalog-dish-type-select">Выберите тип блюда:</label>
+                <select id="catalog-dish-type-select" required>
+                    <option value="">-- Выберите тип --</option>
+                    <option value="1">Салат</option>
+                    <option value="2">Американская пицца</option>
+                    <option value="3">Итальянская пицца</option>
+                    <option value="4">Десерт</option>
+                    <option value="5">Напиток</option>
+                </select>
+                <div class="modal-buttons">
+                    <button type="submit" class="btn btn-success">Добавить</button>
+                    <button type="button" class="btn btn-light" id="cancel-add-to-catalog-btn">Отмена</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <!-- Шаблон карточки блюда -->
+    <template id="dish-item-template">
+        <li>
+            <span class="dish-text">Название блюда (Тип блюда)</span>
+            <div class="icon-container">
+                <img src="assets/move-icon.svg" class="move-dish-icon" alt="Перенести" title="Перенести">
+                <img src="assets/trash-icon.svg" class="delete-dish-icon" alt="Удалить" title="Удалить">
+            </div>
+        </li>
+    </template>
+
+    <footer>
+        <p>Административная панель 2pizza © 2025</p>
+    </footer>
+
+    <script src="admin.js"></script>
+</body>
+</html>
